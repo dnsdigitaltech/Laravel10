@@ -1,26 +1,43 @@
 <?php
 
-use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
-Route::prefix('blog')->group(function(){
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider and all of them will
+| be assigned to the "web" middleware group. Make something great!
+|
+*/
+
+Route::get('/', function () {
+    //dd(route('home'));
+    return view('welcome');
+})->name('home');
+
+Route::get('/contact', function () {
+    //return redirect()->route('home');
+    //return redirect('/');
+    //dd(route('contact'));
+    dd('contato');
+})->name('contact');
+
+Route::get('/teste', function () {
+    dd('teste');
+})->name('teste');
+
+//Rotas com nome e rotas agrupadas
+Route::name('admin.')->prefix('admin')->group(function(){
     Route::get('/', function(){
-        dd('blog');
+        
     });
-
-    Route::get('/post/{slug}', function($slug){
-        dd($slug);
-    });
+    Route::get('/create', function(){
+        dd('create admin');
+    })->name('create');
+    Route::get('/update', function(){
+        dd('update admin');
+    })->name('update');
 });
-
-Route::group(['prefix' => 'admin'],function(){
-    Route::get('/', function(){
-        dd('admin');
-    });
-});
-
-Route::get('/', [HomeController::class, 'index']);
-
-Route::get('user/{name}/age/{age}', function($name, $age){
-    dd("user {$name} idade {$age}");
-})->where('name', '[a-z\-]+')->whereNumber('age');
