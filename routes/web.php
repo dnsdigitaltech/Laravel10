@@ -14,5 +14,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
+    //dump($_SERVER);//mostra o log e não trava a aplicação
+    //dd($_SERVER); //mostra o log e trava a aplicação
+    //ddd($_SERVER); //mostra o log em uma tela específica com mais recursos
     return view('welcome');
 });
