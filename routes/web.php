@@ -5,6 +5,6 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index']);
 
-Route::match(['get', 'post'], '/user/teste', function(){
-    dd('teste');
-});
+Route::get('user/{name}/age/{age}', function($name, $age){
+    dd("user {$name} idade {$age}");
+})->where('name', '[a-z\-]+')->whereNumber('age');
