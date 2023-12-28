@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
-class HomeController
+use Illuminate\Http\Request;
+
+class HomeController extends Controller
 {
-    public function index() {
-        dd('home');
+    public function index(){
+        dd('Home Controller');
     }
 }

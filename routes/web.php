@@ -1,43 +1,31 @@
 <?php
 
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
-
-Route::get('/', function () {
-    //dd(route('home'));
+Route::get('/',function(){
     return view('welcome');
 })->name('home');
 
-Route::get('/contact', function () {
-    //return redirect()->route('home');
-    //return redirect('/');
-    //dd(route('contact'));
-    dd('contato');
-})->name('contact');
+Route::post('/login', function(){
+    return back()->withInput()->with('message', 'Error ao fazer o login');;
+    //return redirect()->back();
+    //return redirect('/')->withInput()->with('message', 'Error ao fazer o login');
+});
+
+//Route::get('/', [HomeController::class, 'index'])->name('home');
+
+Route::get('/product/{id}', [ProductController::class, 'edit'])->name('product.edit');
+Route::get('/product/create', [ProductController::class, 'create'])->name('product.create');
 
 Route::get('/teste', function () {
-    dd('teste');
-})->name('teste');
-
-//Rotas com nome e rotas agrupadas
-Route::name('admin.')->prefix('admin')->group(function(){
-    Route::get('/', function(){
-        
-    });
-    Route::get('/create', function(){
-        dd('create admin');
-    })->name('create');
-    Route::get('/update', function(){
-        dd('update admin');
-    })->name('update');
+    //return redirect()->route('product', ['id' => '89']);
+    //return redirect()->route('home');
+    //return redirect('/product/89');
+    //return redirect('/');
+    //return redirect()->action([HomeController::class, 'index']);
+    //return redirect()->action([ProductController::class, 'edit'], ['id' => 89]);
+    //return redirect()->action([ProductController::class, 'create']);
+    return redirect()->away('http://google.com');
 });
