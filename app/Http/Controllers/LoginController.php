@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 class LoginController extends Controller
 {
-    public function store(Request $request) {
-        dd($request->all());
+    public function index(Request $request) {
+        dd('logado');
     }
 }
