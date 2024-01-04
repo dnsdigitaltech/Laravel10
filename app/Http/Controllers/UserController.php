@@ -6,31 +6,59 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
-    public function index(){
-        dd('list user');
+    /**
+     * Display a listing of the resource.
+     */
+    public function index()
+    {
+        //
     }
 
-    public function show($id){
-        dd('show user com o id '.$id);
-    }
-
-    public function edit($id){
-        dd('edit user com o id '.$id);
-    }
-
-    public function update(){
-        dd('update');
-    }
-
-    public function create(){
+    /**
+     * Show the form for creating a new resource.
+     */
+    public function create()
+    {
         dd('create');
     }
 
-    public function store(){
-        dd('store');
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function store(Request $request)
+    {
+        //
     }
 
-    public function destroy(){
-        dd('delete');
+    /**
+     * Display the specified resource.
+     */
+    public function show(string $id)
+    {
+        dd('show');
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit(string $id)
+    {
+        //
+    }
+
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(Request $request, string $id)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy(string $id)
+    {
+        //
     }
 }
