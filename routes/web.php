@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/login', [LoginController::class, 'index'])->name('login');
+Route::middleware('throttle:users')->get('/teste', [LoginController::class, 'index']);
 Route::get('/protected', [ProtectedController::class, 'index'])->name('protected');
 Route::get('/protected/create', [ProtectedController::class, 'create'])->name('protected.create');
 
