@@ -11,6 +11,7 @@ class HomeController extends Controller
         $data['name'] = 'Davi';
         $data['age'] = '39';
         $data['users'] = User::all();
+        $data['title'] = 'Home';
         return view('home', $data);
     }
 }

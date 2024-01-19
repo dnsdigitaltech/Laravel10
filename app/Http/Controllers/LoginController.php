@@ -7,6 +7,6 @@ use Illuminate\Http\Request;
 class LoginController extends Controller
 {
     public function index(Request $request) {
-        dd('logado');
+        return view('login');
     }
 }
