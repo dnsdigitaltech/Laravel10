@@ -1,9 +1,9 @@
-
-@extends('master')
-@section('content')
+<x-layout>
     <h2>Home</h2>
-@endsection
-
+    <x-button>
+        Comprar
+    </x-button>
+</x-layout>
 {{--@section('scripts')
 <script>
     alert('teste');
