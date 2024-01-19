@@ -11,9 +11,29 @@
         <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
     </head>
     <body>
+        <style>
+            .even{
+                background-color: rgb(122, 109, 109)
+            }
+            .odd{
+                background-color: #f4f4f4
+            }
+        </style>
         <div>
             <h2>Home {{$data}}</h2>
+            @if(true)
+                teste
+            @endif
+            @foreach ($users as $user)
             
+                <li class="{{$loop->even ? 'even' : 'odd' }}">{{$user->name}}</li>
+            @endforeach
+            @php
+                $name = 'davi'
+            @endphp
+            @unless ($name === 'João')
+                teste
+            @endunless
         </div>
     </body>
 </html>

@@ -21,7 +21,7 @@ class HomeComposer
     public function __construct()
     {
         // Dependencies are automatically resolved by the service container...
-        $this->data = "Davi";
+        $this->data = "Davi Composer";
     }
  
     /**
